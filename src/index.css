@@ -22,9 +22,16 @@ html{
   
 }
 
-#profile{
+#username{
     position: relative;
-    right:30px
+    right:110px;
+  
 }
 
-
+#userphoto{
+    position: relative;
+    left:40px;
+}
+div.fixed.bottom-0.w-full  div._InfoRSWP > div > a{
+    display: none;
+}

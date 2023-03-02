@@ -1,11 +1,13 @@
 import React from "react"
 
 
-export default function Playlists({ playlist, getPlaylistsSongs }) {
+export default function Playlists({ playlist, getPlaylistsSongs}) {
 
   function getPlaylistId(playlistId){
       getPlaylistsSongs(playlistId)
   }
+
+ 
 
 
   return (
