@@ -5,8 +5,8 @@
 
 
 html{
-    background-color: rgb(33, 33, 33);
-
+    background-color: rgb(255, 255, 255);
+ 
 }
 
 #logo{
@@ -21,3 +21,10 @@ html{
     font-family: 'Poppins', sans-serif;
   
 }
+
+#profile{
+    position: relative;
+    right:30px
+}
+
+

@@ -9,12 +9,14 @@ export default function Login(){
         <div class="flex flex-col h-screen">
         <div class="flex flex-row">
           <div class="flex flex-col w-1/2">
-          <h3 class="text-6xl font-bold font-mono bg-gradient-to-r from-red-300 to-blue-600 text-transparent bg-clip-text ml-10 mt-10" id="logo">Namify</h3>
-            <h3 class="text-7xl font-bold bg-gradient-to-r from-purple-100 to-yellow-300 text-transparent bg-clip-text ml-10 mt-20" id="subText">Your Personalised</h3>
-            <h3 class="text-7xl font-bold bg-gradient-to-r from-purple-100 to-yellow-300 text-transparent bg-clip-text ml-10 mt-20" id="subText">Music Service</h3>
+          <h3 class="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text ml-10 mt-10" id="logo">Namify</h3>
+          <h3 class="text-7xl font-bold bg-gradient-to-r from-gray-500 to-black text-transparent bg-clip-text ml-10 mt-20" id="subText">Your Personalised</h3>
+<h3 class="text-7xl font-bold bg-gradient-to-r from-gray-500 to-black text-transparent bg-clip-text ml-10 mt-20" id="subText">Music Service</h3>
+
+
             <h3 class="text-4xl font-bold font-mono text-white ml-10 mt-10" id="subText" >For All Music Listeners</h3>
             
-            <a href={authorisation_url} class="bg-white text-black font-bold py-2 px-4 rounded-full hover:bg-gray-200 w-1/4 ml-10 mt-10 text-xl" id="button">Login</a>
+            <a href={authorisation_url} class="bg-gray-600 text-white font-bold py-2 px-4 rounded-full hover:bg-gray-400 w-1/4 ml-10 mt-10 text-xl" id="button">Login</a>
           </div>
           
           <div class="w-1/2 h-screen">
