@@ -1,12 +1,12 @@
 import React from "react"
 
-export default function AddSong({song, chooseTrack, removeSong} ) {
+export default function AddSong({key, song, chooseTrack,removeSong } ) {
 
     function handlePlay() {
         chooseTrack(song)
       }
       function handleRemoveSong(){
-        removeSong(song)
+        removeSong(key)
       }
    
   return (

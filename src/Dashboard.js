@@ -301,8 +301,12 @@ export default function Dashboard({ code }) {
 
   }
 
-  function removeSong(song) {
-    setSongList(prevSongList => prevSongList.filter(item => item.id !== song.id));
+  function removeSong(index) {
+    setSongList(prevSongList => prevSongList.filter((_, i) => i !== index));
+  }
+
+  function removeArtist(index) {
+    setArtistList(prevArtistList => prevArtistList.filter((_, i) => i !== index));
   }
 
   useEffect(() => {
@@ -382,7 +386,7 @@ export default function Dashboard({ code }) {
             </h3>
 
             {currentSearchChoice === "songs" && searchResults.map(track => (
-              <SearchResults track={track} key={track.uri} chooseTrack={chooseTrack} addSong={addSong} currentRecommendationLength={currentRecommendationLength} />
+              <SearchResults track={track}  chooseTrack={chooseTrack} addSong={addSong} currentRecommendationLength={currentRecommendationLength} />
             ))}
             {currentSearchChoice === "artists" && searchArtistsResults.map(artist => (
               <ArtistSearchResults artist={artist} addArtist={addArtist} />
@@ -406,11 +410,11 @@ export default function Dashboard({ code }) {
   {recommendationState ? (
     <div className="flex-grow">
       <h3 className="font-bold text-center pb-2 mx-auto"></h3>
-      {songList.map(song => (
-        <AddSong song={song} chooseTrack={chooseTrack} removeSong={removeSong}/>
-      ))}
-      {artistList.map(artist => (
-        <AddArtist artist={artist} />
+      {songList.map((song, index) => (
+  <AddSong key={index} song={song} chooseTrack={chooseTrack}  removeSong={() => removeSong(index)} />
+))}
+      {artistList.map((artist,index) => (
+        <AddArtist key={index} artist={artist} removeArtist={() => removeArtist(index)}/>
       ))}
       
       <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded absolute bottom-0" style={{ marginLeft: "130px", marginBottom: "28px" }} onClick={getRecommendations} >
