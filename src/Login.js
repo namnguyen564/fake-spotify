@@ -9,9 +9,10 @@ export default function Login(){
         <div class="flex flex-col h-screen">
         <div class="flex flex-row">
           <div class="flex flex-col w-1/2">
-          <h3 class="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text ml-10 mt-10" id="logo">Namify</h3>
-          <h3 class="text-7xl font-bold bg-gradient-to-r from-gray-500 to-black text-transparent bg-clip-text ml-10 mt-20" id="subText">Your Personalised</h3>
-<h3 class="text-7xl font-bold bg-gradient-to-r from-gray-500 to-black text-transparent bg-clip-text ml-10 mt-20" id="subText">Music Service</h3>
+          {/* <h3 class="text-8xl font-extrabold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text ml-10 mt-10" id="logo">Namify</h3> */}
+          <img src={process.env.PUBLIC_URL + 'My project-1 (6).png'} style={{height:"200px",width:"490px"}}></img>
+          <h3 class="text-7xl font-bold bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text ml-10 mt-10" id="subText">Your Personalised</h3>
+<h3 class="text-7xl font-bold bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text ml-10 mt-20" id="subText">Music Service</h3>
 
 
             <h3 class="text-4xl font-bold font-mono text-white ml-10 mt-10" id="subText" >For All Music Listeners</h3>
@@ -20,7 +21,7 @@ export default function Login(){
           </div>
           
           <div class="w-1/2 h-screen">
-            <img src="https://images.immediate.co.uk/production/volatile/sites/3/2022/03/rick-and-morty-5bc162c.jpg?quality=90&resize=980,654" alt="Image" class="w-full h-full object-cover" ></img>
+          <img src={process.env.PUBLIC_URL + '/Namify-1 (11).png'} alt="Namify logo"  class=" h-full object-cover"/>
           </div>
         </div>
       </div>

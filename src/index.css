@@ -5,12 +5,25 @@
 
 
 html{
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(27, 26, 26);
  
+}
+#topbar{
+    background-color: rgb(27, 26, 26);
+    /* background-color: rgb(116, 116, 116); */
+}
+#background{
+    /* background-color: rgb(37, 36, 36); */
+       background-color: rgb(162, 162, 162);
+}
+#container-background{
+    /* background-color: rgb(213, 213, 213); */
+    
 }
 
 #logo{
     font-family: 'Poppins', sans-serif;
+    
     /* color:rgb(56, 214, 231) */
 }
 
@@ -22,6 +35,10 @@ html{
   
 }
 
+/* #playlist{
+    font-family: 'Poppins', sans-serif;
+    
+} */
 #username{
     position: relative;
     right:110px;

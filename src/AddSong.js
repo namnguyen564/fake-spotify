@@ -6,7 +6,7 @@ export default function AddSong({key, song, chooseTrack,removeSong } ) {
         chooseTrack(song)
       }
       function handleRemoveSong(){
-        removeSong(key)
+        removeSong()
       }
    
   return (

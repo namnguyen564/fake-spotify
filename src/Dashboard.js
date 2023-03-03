@@ -33,7 +33,7 @@ export default function Dashboard({ code }) {
   const [artistList, setArtistList] = useState([])
   const [recommendations, setRecommendation] = useState([])
   const [recommendationState, setRecommendationState] = useState(true)
-  const [currentRecommendationLength , setCurrentRecommendationLength] = useState(0)
+  const [currentRecommendationLength, setCurrentRecommendationLength] = useState(0)
 
 
 
@@ -283,8 +283,8 @@ export default function Dashboard({ code }) {
   function addSong(song) {
     console.log(song)
     console.log("tryna add song")
-    
-    setSongList([...songList, { id: song.id, name: song.title,artist: song.artist, image: song.albumUrl }]);
+
+    setSongList([...songList, { id: song.id, name: song.title, artist: song.artist, image: song.albumUrl }]);
     console.log(songList)
     console.log(currentRecommendationLength)
 
@@ -292,7 +292,7 @@ export default function Dashboard({ code }) {
 
   function addArtist(artist) {
     console.log(artist)
-    
+
     // let trackId = song.uri.substring(song.uri.indexOf("track:") + 6);
     console.log("tryna add artist")
     setArtistList([...artistList, { id: artist.artistId, artistName: artist.artistName, artistImage: artist.artistImage }]);
@@ -315,49 +315,53 @@ export default function Dashboard({ code }) {
 
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-screen ">
 
 
 
 
 
-      <div className="flex justify-center items-center bg-gray-100">
-        <div className="mx-10">
-          <h3 className="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text" id="logo">Namify</h3>
-        </div>
+      <div className="flex justify-center items-center bg-gray-100" id="topbar">
+        {/* <div className="mx-10"> */}
+        <img src={process.env.PUBLIC_URL + 'My project-1 (11).png'} style={{height:"80px",width:"500px",marginLeft:"20px"}}></img>
+          {/* <h3 className="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text" id="logo">Namify</h3> */}
+       
+       
+        {/* </div> */}
         <div className="inline-block w-1/2 mx-auto mt-8 mx-15" style={{ marginLeft: "265px", position: "relative", bottom: 13 }}>
           <div className="flex items-center border border-gray-300 rounded px-4 py-2 w-80 bg-white">
             <input
               className="flex-grow outline-none pr-4 text-lg font-semibold text-gray-700"
               type="text"
-              placeholder="Search for something..."
+              placeholder={`Search for ${currentSearchChoice}`}
               value={search}
               onChange={e => setSearch(e.target.value)}
             />
 
           </div>
-         
+
 
 
         </div>
 
-        <label class="inline-flex items-center"style={{paddingRight:"340px",paddingTop:"6px"}}>
-  <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600" onClick={handleSwitchToggle} />
-  <span class="ml-2 text-gray-700 font-bold">{currentSearchChoice === "songs" ? "Search Artists" : "Search Artists"}</span>
-</label>
-          
+        <label class="inline-flex items-center" style={{ paddingRight: "340px", paddingTop: "6px" }}>
+          <input type="checkbox" class="form-checkbox h-5 w-5 text-indigo-600" onClick={handleSwitchToggle} />
+          <span class="ml-2 text-white font-bold">{currentSearchChoice === "songs" ? "Search Artists" : "Search Artists"}</span>
+        </label>
+
         {/* <div className="flex items-center bg-gray-400  p-2 h-14 rounded-lg" id="profile"> */}
 
-          <img src={userPhoto} className="object-contain  mr-4" id="userphoto"style={{ maxWidth: "100%", maxHeight: "100%", height: "60px", width: "60px" }}></img>
-          <div className="font-bold  " id="username">{userName}</div>
+        <img src={userPhoto} className="object-contain mr-4 border border-white" id="userphoto" style={{ maxWidth: "100%", maxHeight: "100%", height: "60px", width: "60px" }}></img>
+
+        <div className="font-bold text-white " id="username">{userName}</div>
         {/* </div> */}
 
       </div>
 
-      <div className="flex-grow bg-gray-200">
+      <div className="flex-grow " id="background">
         <div className="flex">
 
-          <div className="border rounded-lg overflow-y-scroll p-2 bg-gray-300 space-y-2" style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginLeft: "10px", width: 500 }}>
+          <div className=" rounded-lg overflow-y-scroll p-2 space-y-2 bg-gray-300" id="container-background"style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginLeft: "10px", width: 500 }}>
             <div className="flex items-center bg-gray-300 " id="catergory">
               {!playlistState && (
 
@@ -365,7 +369,9 @@ export default function Dashboard({ code }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
               )}
-              <h3 class="font-bold text-center border-b-2 border-gray-500  mx-auto text-2xl">{playlistState ? 'Playlists:' : playlistName}</h3>
+<h3 class="font-bold text-center border-b-2 border-gray-500 mx-auto text-2xl" id="playlist">
+  {playlistState ? 'Playlists:' : playlistName}
+</h3>
             </div>
             {playlistState ? (
               displayUserPlaylists.map(eachPlaylist => (
@@ -378,60 +384,68 @@ export default function Dashboard({ code }) {
             )}
           </div>
 
-          <div className="border rounded-lg overflow-y-scroll p-2 bg-gray-300 space-y-2" style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginRight: "10px", marginLeft: "10px", paddingTop: "25px", width: 500 }}>
-            
+          <div className=" rounded-lg overflow-y-scroll p-2 bg-gray-300 space-y-2" style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginRight: "10px", marginLeft: "10px", paddingTop: "25px", width: 500 }}>
+
             <h3 className="font-bold text-center  mx-auto" style={{ position: "relative", top: "10px ", right: "43px", bottom: "40px", marginBottom: "26px" }}>
-              
-              <span className="border-b-2 border-gray-500 text-2xl inline-block " style={{ position: "absolute", bottom: "-0.4em" }}>Search:</span>
+
+              <span className="font-bold border-b-2 text-2xl inline-block border-b-2 border-gray-500 " style={{ position: "absolute", bottom: "-0.4em" }} id="search">Search:</span>
             </h3>
 
             {currentSearchChoice === "songs" && searchResults.map(track => (
-              <SearchResults track={track}  chooseTrack={chooseTrack} addSong={addSong} currentRecommendationLength={currentRecommendationLength} />
+              <SearchResults track={track} chooseTrack={chooseTrack} addSong={addSong} currentRecommendationLength={currentRecommendationLength} />
             ))}
             {currentSearchChoice === "artists" && searchArtistsResults.map(artist => (
-              <ArtistSearchResults artist={artist} addArtist={addArtist} />
+              <ArtistSearchResults artist={artist} addArtist={addArtist} currentRecommendationLength={currentRecommendationLength}/>
             ))}
 
 
 
           </div>
 
-          <div className="border rounded-lg overflow-y-scroll p-2 bg-gray-300 flex flex-col relative" style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginRight: "10px", width: 500 }}>
+          <div className=" rounded-lg overflow-y-scroll p-2 bg-gray-300 flex flex-col relative" style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginRight: "10px", width: 500 }}>
 
-  <div className="flex items-center bg-gray-300 " id="catergory">
-    {!recommendationState && (
-      <svg className=" cursor-pointer w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" onClick={() => setRecommendationState(true)}>
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-      </svg>
-    )}
-    <h3 class="font-bold text-center border-b-2 border-gray-500  mx-auto text-2xl">{recommendationState ? 'Recommendation:' : "Your Recommendation"}</h3>
-  </div>
+            <div className="flex items-center bg-gray-300 " id="catergory">
+              {!recommendationState && (
+                <svg className=" cursor-pointer w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" onClick={() => setRecommendationState(true)}>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+              )}
+              <h3 class="font-bold text-center border-b-2 border-gray-500  mx-auto text-2xl" id="search">{recommendationState ? 'Recommendation:' : "Your Recommendation"}</h3>
+            </div>
 
-  {recommendationState ? (
-    <div className="flex-grow">
-      <h3 className="font-bold text-center pb-2 mx-auto"></h3>
-      {songList.map((song, index) => (
-  <AddSong key={index} song={song} chooseTrack={chooseTrack}  removeSong={() => removeSong(index)} />
-))}
-      {artistList.map((artist,index) => (
-        <AddArtist key={index} artist={artist} removeArtist={() => removeArtist(index)}/>
-      ))}
-      
-      <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded absolute bottom-0" style={{ marginLeft: "130px", marginBottom: "28px" }} onClick={getRecommendations} >
+            {recommendationState ? (
+              <div className="flex-grow">
+                <h3 className="font-bold text-center pb-2 mx-auto"></h3>
+                {songList.map((song, index) => (
+                  <AddSong key={index} song={song} chooseTrack={chooseTrack} removeSong={() => removeSong(index)} />
+                ))}
+                {artistList.map((artist, index) => (
+                  <AddArtist key={index} artist={artist} removeArtist={() => removeArtist(index)} />
+                ))}
+         <button
+  className={`bg-${currentRecommendationLength >= 1 ? 'gradient-to-r from-purple-500 to-red-500 ' : 'gray-400'} text-white font-bold py-2 px-4 rounded absolute bottom-0  `}
+  style={{ marginLeft: "130px", marginBottom: "13px" }}
+  onClick={getRecommendations}
+  disabled={currentRecommendationLength < 1}
+>
   Get Recommendation
 </button>
-    </div>
-  ) : (
-    
-    recommendations.map(eachSong => (
-      <Recommendations style={{ paddingTop: "40px" }} song={eachSong} chooseTrack={chooseTrack} addSong={addSong} />
-    ))
-    
-  )}
 
- 
 
-</div>
+
+
+              </div>
+            ) : (
+
+              recommendations.map(eachSong => (
+                <Recommendations style={{ paddingTop: "40px" }} song={eachSong} chooseTrack={chooseTrack} addSong={addSong} />
+              ))
+
+            )}
+
+
+
+          </div>
 
 
 
