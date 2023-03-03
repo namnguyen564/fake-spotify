@@ -6,20 +6,23 @@
 
 html{
     background-color: rgb(27, 26, 26);
+    
  
 }
 #topbar{
     background-color: rgb(27, 26, 26);
     /* background-color: rgb(116, 116, 116); */
 }
-#background{
+/* #background{ */
     /* background-color: rgb(37, 36, 36); */
+
+
+    /*correct
        background-color: rgb(162, 162, 162);
-}
-#container-background{
-    /* background-color: rgb(213, 213, 213); */
-    
-}
+       */
+/* } */
+
+
 
 #logo{
     font-family: 'Poppins', sans-serif;

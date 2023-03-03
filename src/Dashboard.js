@@ -358,7 +358,7 @@ export default function Dashboard({ code }) {
 
       </div>
 
-      <div className="flex-grow " id="background">
+      <div className="flex-grow bg-gradient-to-r from-purple-200 to-red-300 " id="background">
         <div className="flex">
 
           <div className=" rounded-lg overflow-y-scroll p-2 space-y-2 bg-gray-300" id="container-background"style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginLeft: "10px", width: 500 }}>
