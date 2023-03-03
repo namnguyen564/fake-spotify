@@ -1,4 +1,4 @@
-import {render,screen,fireEvent} from "@testing-library/react"
+import {render,screen,fireEvent,waitFor} from "@testing-library/react"
 import SearchResults from "./SearchResults"
 
 test("artist and track are displayed", () => {
@@ -16,20 +16,24 @@ test("artist and track are displayed", () => {
     expect(screen.getByText(fakeData.title)).not.toBeNull()
 })
 
-test("test handle play button", ()=>{
+test("test handle play button", async () => {
     const fakeData = {
-        title: "idk",
-        artist: "idk again",
-        albumUrl: "sadadkj"
+      title: "idk",
+      artist: "idk again",
+      albumUrl: "sadadkj"
     }
-
+  
     const chooseTrackHandler = jest.fn()
-
+  
     render (
-        <SearchResults track={fakeData} chooseTrack={chooseTrackHandler}></SearchResults>
+      <SearchResults track={fakeData} chooseTrack={chooseTrackHandler}></SearchResults>
     )
-    
+  
+    // await waitFor(() => {
+    //   expect(screen.getByTestId("clicking-div")).toBeInTheDocument()
+    // })
+  
     fireEvent.click(screen.getByTestId("clicking-div"))
-    
+  
     expect(chooseTrackHandler).toHaveBeenCalled()
-})
+  })
