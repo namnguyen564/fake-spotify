@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/namify/static/css/main.804c0ae4.css",
+    "main.js": "/namify/static/js/main.db5c5913.js",
+    "index.html": "/namify/index.html",
+    "main.804c0ae4.css.map": "/namify/static/css/main.804c0ae4.css.map",
+    "main.db5c5913.js.map": "/namify/static/js/main.db5c5913.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.804c0ae4.css",
+    "static/js/main.db5c5913.js"
+  ]
+}
