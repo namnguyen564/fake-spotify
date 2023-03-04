@@ -15,3 +15,4 @@ test("Recommendations displays", () => {
     expect(screen.getByText(fakeData.artist)).not.toBeNull()
     expect(screen.getByText(fakeData.title)).not.toBeNull()
 })
+
