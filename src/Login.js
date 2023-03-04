@@ -21,7 +21,7 @@ export default function Login(){
           </div>
           
           <div class="w-1/2 h-screen">
-          <img src={process.env.PUBLIC_URL + '/Namify-1 (11).png'} alt="Namify logo"  class=" h-full object-cover"/>
+          <img src={process.env.PUBLIC_URL + '/Namify-1 (12).png'} alt="Namify logo"  class=" h-full object-cover"/>
           </div>
         </div>
       </div>

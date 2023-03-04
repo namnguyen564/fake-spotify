@@ -34,6 +34,10 @@ export default function Dashboard({ code }) {
   const [recommendations, setRecommendation] = useState([])
   const [recommendationState, setRecommendationState] = useState(true)
   const [currentRecommendationLength, setCurrentRecommendationLength] = useState(0)
+  const [libraryState, setLibraryState] = useState(true)
+  const [likedSongs, setLikedSongs] = useState([])
+  const [likedState, setLikedSongsState] = useState(true)
+ 
 
 
 
@@ -101,18 +105,41 @@ export default function Dashboard({ code }) {
 
 
 
-  // useEffect(() => {
-  //   spotifyApi.getMySavedTracks({
-  //     limit : 2,
-  //     offset: 1
-  //   })
-  //   .then(function(data) {
-  //     console.log('Done!');
-  //     console.log(data.body)
-  //   }, function(err) {
-  //     console.log('Something went wrong!', err);
-  //   });
-  // },[accessToken])
+  useEffect(() => {
+    spotifyApi.getMySavedTracks({
+      limit : 10,
+      offset: 1
+    })
+    .then(function(data) {
+      console.log('Done!');
+      console.log(data.body)
+      setLikedSongs(
+
+        data.body.items.map(eachSong=> {
+          const biggestAlbumImage = eachSong.track.album.images.reduce(
+            (biggest, image) => {
+              if (image.height > biggest.height) return image
+              return biggest
+            },
+            eachSong.track.album.images[0]
+          )
+
+          return {
+            artist: eachSong.track.artists[0].name,
+            title: eachSong.track.name,
+            uri: eachSong.track.uri,
+            albumUrl: biggestAlbumImage.url,
+            id: eachSong.track.id
+          }
+        })
+      )
+
+    }, function(err) {
+      console.log('Something went wrong!', err);
+    });
+  },[userId])
+
+
 
   function chooseTrack(track) {
     setPlayingTrack(track)
@@ -323,10 +350,10 @@ export default function Dashboard({ code }) {
 
       <div className="flex justify-center items-center bg-gray-100" id="topbar">
         {/* <div className="mx-10"> */}
-        <img src={process.env.PUBLIC_URL + 'My project-1 (11).png'} style={{height:"80px",width:"500px",marginLeft:"20px"}}></img>
-          {/* <h3 className="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text" id="logo">Namify</h3> */}
-       
-       
+        <img src={process.env.PUBLIC_URL + 'My project-1 (11).png'} style={{ height: "80px", width: "500px", marginLeft: "20px" }}></img>
+        {/* <h3 className="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text" id="logo">Namify</h3> */}
+
+
         {/* </div> */}
         <div className="inline-block w-1/2 mx-auto mt-8 mx-15" style={{ marginLeft: "265px", position: "relative", bottom: 13 }}>
           <div className="flex items-center border border-gray-300 rounded px-4 py-2 w-80 bg-white">
@@ -361,7 +388,7 @@ export default function Dashboard({ code }) {
       <div className="flex-grow bg-gradient-to-r from-purple-200 to-red-300 " id="background">
         <div className="flex">
 
-          <div className=" rounded-lg overflow-y-scroll p-2 space-y-2 bg-gray-300" id="container-background"style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginLeft: "10px", width: 500 }}>
+          <div className=" rounded-lg overflow-y-scroll p-2 space-y-2 bg-gray-300" id="container-background" style={{ marginBottom: "150px", height: "582px", marginTop: "10px", marginLeft: "10px", width: 500 }}>
             <div className="flex items-center bg-gray-300 " id="catergory">
               {!playlistState && (
 
@@ -369,14 +396,16 @@ export default function Dashboard({ code }) {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
               )}
-<h3 class="font-bold text-center border-b-2 border-gray-500 mx-auto text-2xl" id="playlist">
-  {playlistState ? 'Playlists:' : playlistName}
-</h3>
+              <h3 class="font-bold text-center border-b-2 border-gray-500 mx-auto text-2xl" id="playlist">
+                {playlistState ? 'Playlists:' : playlistName}
+              </h3>
             </div>
             {playlistState ? (
+       
               displayUserPlaylists.map(eachPlaylist => (
                 <Playlists playlist={eachPlaylist} getPlaylistsSongs={getPlaylistsSongs} addSong={addSong} />
-              ))
+                ))
+            
             ) : (
               playlistSongs.map(eachSong => (
                 <SearchResults track={eachSong} chooseTrack={chooseTrack} addSong={addSong} currentRecommendationLength={currentRecommendationLength} />
@@ -395,7 +424,7 @@ export default function Dashboard({ code }) {
               <SearchResults track={track} chooseTrack={chooseTrack} addSong={addSong} currentRecommendationLength={currentRecommendationLength} />
             ))}
             {currentSearchChoice === "artists" && searchArtistsResults.map(artist => (
-              <ArtistSearchResults artist={artist} addArtist={addArtist} currentRecommendationLength={currentRecommendationLength}/>
+              <ArtistSearchResults artist={artist} addArtist={addArtist} currentRecommendationLength={currentRecommendationLength} />
             ))}
 
 
@@ -412,7 +441,12 @@ export default function Dashboard({ code }) {
               )}
               <h3 class="font-bold text-center border-b-2 border-gray-500  mx-auto text-2xl" id="search">{recommendationState ? 'Recommendation:' : "Your Recommendation"}</h3>
             </div>
-
+            {currentRecommendationLength === 0 && (
+  <div className="text-center font-bold bg-orange-400 text-white py-4 rounded "style={{marginTop:"180px",marginLeft:"40px",width:"370px"}}>
+    Select up to 5 items (Songs or Artists)
+  </div>
+)}
+       
             {recommendationState ? (
               <div className="flex-grow">
                 <h3 className="font-bold text-center pb-2 mx-auto"></h3>
@@ -422,41 +456,23 @@ export default function Dashboard({ code }) {
                 {artistList.map((artist, index) => (
                   <AddArtist key={index} artist={artist} removeArtist={() => removeArtist(index)} />
                 ))}
-         <button
-  className={`bg-${currentRecommendationLength >= 1 ? 'gradient-to-r from-purple-500 to-red-500 ' : 'gray-400'} text-white font-bold py-2 px-4 rounded absolute bottom-0  `}
-  style={{ marginLeft: "130px", marginBottom: "13px" }}
-  onClick={getRecommendations}
-  disabled={currentRecommendationLength < 1}
->
-  Get Recommendation
-</button>
-
-
-
+                <button
+                  className={`bg-${currentRecommendationLength >= 1 ? 'gradient-to-r from-purple-500 to-red-500 ' : 'gray-400'} text-white font-bold py-2 px-4 rounded absolute bottom-0  `}
+                  style={{ marginLeft: "130px", marginBottom: "13px" }}
+                  onClick={getRecommendations}
+                  disabled={currentRecommendationLength < 1}
+                >
+                  Get Recommendation
+                </button>
 
               </div>
             ) : (
-
               recommendations.map(eachSong => (
                 <Recommendations style={{ paddingTop: "40px" }} song={eachSong} chooseTrack={chooseTrack} addSong={addSong} />
               ))
-
             )}
-
-
-
           </div>
-
-
-
-
-
-
         </div>
-
-
-
-
       </div>
 
 

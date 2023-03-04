@@ -11,13 +11,13 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get('/test',(req,res) =>{
+app.get('/test', (req, res) => {
     res.json({ message: "hello" });
 })
 
 
-app.post('/refresh', (req,res) => {
-   
+app.post('/refresh', (req, res) => {
+
     const refreshToken = req.body.refreshToken
     console.log(refreshToken)
 
@@ -29,34 +29,34 @@ app.post('/refresh', (req,res) => {
     })
 
     spotifyApi
-    .refreshAccessToken()
-    .then(data => {
-          console.log(data.body);
+        .refreshAccessToken()
+        .then(data => {
+            console.log(data.body);
             res.json({
                 accessToken: data.body.accessToken,
                 expiresIn: data.body.expiresIn
             })
-          // Save the access token so that it's used in future calls
-        //   spotifyApi.setAccessToken(data.body['access_token']);
+            // Save the access token so that it's used in future calls
+            //   spotifyApi.setAccessToken(data.body['access_token']);
         })
-        
+
         .catch(err => {
             console.log(err)
             res.sendStatus(400)
         })
-    
+
 })
 
 app.post('/login', (req, res) => {
     // console.log(req.body)
     console.log("smh")
     const code = req.body.code;
-   
+
 
     const spotifyApi = new SpotifyWebApi({
         redirectUri: process.env.REDIRECT_URI,
-    clientId: process.env.CLIENT_ID,
-    clientSecret: process.env.CLIENT_SECRET,
+        clientId: process.env.CLIENT_ID,
+        clientSecret: process.env.CLIENT_SECRET,
     })
 
     spotifyApi.authorizationCodeGrant(code).then(data => {
@@ -65,7 +65,7 @@ app.post('/login', (req, res) => {
             refreshToken: data.body.refresh_token,
             expiresIn: data.body.expires_in,
         })
-    }).catch((err)=>{
+    }).catch((err) => {
         console.log(err)
         res.sendStatus(400)
     })

@@ -1,47 +1,47 @@
-import  { useState,useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import axios from "axios"
 
-export default function useAuth(code){
+export default function useAuth(code) {
     const [accessToken, setAcessToken] = useState()
     const [refreshToken, setRefreshToken] = useState()
     const [expiresIn, setExpiresIn] = useState()
 
-    useEffect(()=>{
-       
-        axios.post('http://localhost:3001/login',{
+    useEffect(() => {
+
+        axios.post('http://localhost:3001/login', {
             code,
-        }).then(res=>{
+        }).then(res => {
             console.log(res.data)
             setAcessToken(res.data.accessToken)
             setRefreshToken(res.data.refreshToken)
             setExpiresIn(res.data.expiresIn)
             window.history.pushState({}, null, "/")
-        }).catch(()=>{
+        }).catch(() => {
             window.location = "/"
-           
+
         })
-    },[code])
+    }, [code])
 
 
 
-    useEffect(()=>{
+    useEffect(() => {
         if (!refreshToken || !expiresIn) return
-        const interval = setInterval(()=>{
+        const interval = setInterval(() => {
             axios
-            .post('http://localhost:3001/refresh',{
-                refreshToken,
-            })
-            .then(res=>{
-                setAcessToken(res.data.accessToken)
-                setExpiresIn(61)
-            })
-            .catch(()=>{
-                window.location = "/"
-            })
+                .post('http://localhost:3001/refresh', {
+                    refreshToken,
+                })
+                .then(res => {
+                    setAcessToken(res.data.accessToken)
+                    setExpiresIn(61)
+                })
+                .catch(() => {
+                    window.location = "/"
+                })
         }, (expiresIn - 60) * 1000)
         return () => clearInterval(interval)
     }, [refreshToken, expiresIn])
-    
+
 
 
 
