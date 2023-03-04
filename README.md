@@ -1,4 +1,4 @@
-Namify - REACT APP using Spotify API
+## Namify - REACT APP using Spotify API
 
 My development for this project originally began using the site excalidraw to design up a wireframe of the usage and looks of how I intended it to look and work.From there I began researching documentation on usage on the Spotify API.
 
