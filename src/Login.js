@@ -1,8 +1,8 @@
 import React from "react"
 
 // Authorisation URL which redirects user to Spotifys login page
-const authorisation_url =
-"https://accounts.spotify.com/authorize?client_id=c08f355b3fe744f8ae7bb97dc1de955b&response_type=code&redirect_uri=https://github.com/namnguyen564/namify&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state"
+const authorisation_url ='https://accounts.spotify.com/authorize?client_id=c08f355b3fe744f8ae7bb97dc1de955b&response_type=code&redirect_uri=https%3A%2F%2Fnamnguyen564.github.io%2Fnamify%2F&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state'
+
 
   
 
