@@ -8,7 +8,7 @@ export default function useAuth(code) {
 
     useEffect(() => {
 
-        axios.post('https://namnguyen564.github.io/namify/login', {
+        axios.post('http://localhost:3001/login', {
             code,
         }).then(res => {
             console.log(res.data)
@@ -17,7 +17,7 @@ export default function useAuth(code) {
             setExpiresIn(res.data.expiresIn)
             window.history.pushState({}, null, "/")
         }).catch(() => {
-            window.location = "/"
+            // window.location = "/"
 
         })
     }, [code])
@@ -28,7 +28,7 @@ export default function useAuth(code) {
         if (!refreshToken || !expiresIn) return
         const interval = setInterval(() => {
             axios
-                .post('https://namnguyen564.github.io/namify/refresh', {
+                .post('http://localhost:3001/refresh', {
                     refreshToken,
                 })
                 .then(res => {
