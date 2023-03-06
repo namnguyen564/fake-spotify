@@ -350,7 +350,7 @@ export default function Dashboard({ code }) {
 
       <div className="flex justify-center items-center bg-gray-100" id="topbar">
         {/* <div className="mx-10"> */}
-        <img src={process.env.PUBLIC_URL + 'My project-1 (11).png'} style={{ height: "80px", width: "500px", marginLeft: "20px" }}></img>
+        <img src={process.env.PUBLIC_URL +"/"+ 'My project-1 (11).png'} style={{ height: "80px", width: "500px", marginLeft: "20px" }}></img>
         {/* <h3 className="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text" id="logo">Namify</h3> */}
 
 
