@@ -5,11 +5,8 @@ My development for this project originally began using the site excalidraw to de
 Main features:
 
 -Spotify Account conectivity for login
--Frontend API calls to fetch user's playlist 
+-Frontend API calls to fetch user's playlist
 -Frontend API call to request searches for songs and artists
 -Frontend API call retrieve a recommendation of songs from the given list of songs/artists from the user
 
-
-
-
-
+s
