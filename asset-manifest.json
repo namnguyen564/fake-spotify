@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/namify/static/css/main.804c0ae4.css",
-    "main.js": "/namify/static/js/main.f5873b13.js",
+    "main.js": "/namify/static/js/main.c813316c.js",
     "index.html": "/namify/index.html",
     "main.804c0ae4.css.map": "/namify/static/css/main.804c0ae4.css.map",
-    "main.f5873b13.js.map": "/namify/static/js/main.f5873b13.js.map"
+    "main.c813316c.js.map": "/namify/static/js/main.c813316c.js.map"
   },
   "entrypoints": [
     "static/css/main.804c0ae4.css",
-    "static/js/main.f5873b13.js"
+    "static/js/main.c813316c.js"
   ]
 }
