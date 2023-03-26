@@ -394,16 +394,16 @@ export default function Dashboard({ code }) {
         className="flex-grow bg-gradient-to-r from-purple-200 to-red-300 "
         id="background"
       >
-        <div className="flex" style={{ height: "78vh" }}>
+        <div className="flex">
           <div
             className=" rounded-lg overflow-y-scroll p-2 space-y-2 bg-gray-300"
             id="container-background"
             style={{
               marginBottom: "150px",
-              height: "98%",
+              height: "582px",
               marginTop: "10px",
               marginLeft: "10px",
-              width: "33%",
+              width: 500,
             }}
           >
             <div className="flex items-center bg-gray-300 " id="catergory">
@@ -453,12 +453,12 @@ export default function Dashboard({ code }) {
             className=" rounded-lg overflow-y-scroll p-2 bg-gray-300 space-y-2"
             style={{
               marginBottom: "150px",
-              height: "98%",
+              height: "582px",
               marginTop: "10px",
               marginRight: "10px",
               marginLeft: "10px",
               paddingTop: "25px",
-              width: "33%",
+              width: 500,
             }}
           >
             <h3
@@ -503,10 +503,10 @@ export default function Dashboard({ code }) {
             className=" rounded-lg overflow-y-scroll p-2 bg-gray-300 flex flex-col relative"
             style={{
               marginBottom: "150px",
-              height: "98%",
+              height: "582px",
               marginTop: "10px",
               marginRight: "10px",
-              width: "33%",
+              width: 500,
             }}
           >
             <div className="flex items-center bg-gray-300 " id="catergory">
