@@ -330,33 +330,55 @@ export default function Dashboard({ code }) {
 
   return (
     <div className="flex flex-col h-screen ">
-      <div className="flex justify-center items-center bg-gray-100" id="topbar">
+      <div
+        className="flex bg-gray-100"
+        // className="flex justify-center items-center bg-gray-100"
+        id="topbar"
+        style={{ height: "10vh" }}
+      >
         {/* <div className="mx-10"> */}
         <img
           src={process.env.PUBLIC_URL + "/" + "My project-1 (11).png"}
-          style={{ height: "80px", width: "500px", marginLeft: "20px" }}
+          style={{ height: "80px", width: "300px", marginLeft: "20px" }}
         ></img>
         {/* <h3 className="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text" id="logo">Namify</h3> */}
 
         {/* </div> */}
-        <div
+        {/* <div
           className="inline-block w-1/2 mx-auto mt-8 mx-15"
           style={{ marginLeft: "265px", position: "relative", bottom: 13 }}
+        > */}
+        <div
+          className="border border-gray-300 rounded px-4 py-2 w-80 bg-white mx-auto"
+          style={{
+            height: "67%",
+            marginTop: "13px",
+            width: "32%",
+            marginLeft: "170px",
+            // position: "relative",
+            // left: "27px",
+            // position: "relative",
+            // left: "0px",
+          }}
         >
-          <div className="flex items-center border border-gray-300 rounded px-4 py-2 w-80 bg-white">
-            <input
-              className="flex-grow outline-none pr-4 text-lg font-semibold text-gray-700"
-              type="text"
-              placeholder={`Search for ${currentSearchChoice}`}
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
+          <input
+            className="flex-grow outline-none pr-4 text-lg font-semibold text-gray-700 mx-auto"
+            type="text"
+            placeholder={`Search for ${currentSearchChoice}`}
+            value={search}
+            style={{
+              height: "40px",
+              width: "100%",
+            }}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </div>
+
+        {/* </div> */}
 
         <label
           class="inline-flex items-center"
-          style={{ paddingRight: "340px", paddingTop: "6px" }}
+          style={{ paddingTop: "6px", marginRight: "300px", width: "40px" }}
         >
           <input
             type="checkbox"
@@ -381,10 +403,17 @@ export default function Dashboard({ code }) {
             maxHeight: "100%",
             height: "60px",
             width: "60px",
+            // marginLeft: "60px",
+            marginTop: "9px",
+            marginLeft: "30px",
           }}
         ></img>
 
-        <div className="font-bold text-white " id="username">
+        <div
+          className="font-bold text-white "
+          id="username"
+          style={{ position: "relative", right: "150px", width: "20px" }}
+        >
           {userName}
         </div>
         {/* </div> */}

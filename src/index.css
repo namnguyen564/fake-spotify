@@ -1,57 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
-
-html{
-    background-color: rgb(27, 26, 26);
-    
- 
+html,
+body {
+  height: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
 }
-#topbar{
-    background-color: rgb(27, 26, 26);
-    /* background-color: rgb(116, 116, 116); */
+html {
+  background-color: rgb(27, 26, 26);
+}
+#topbar {
+  background-color: rgb(27, 26, 26);
+  /* background-color: rgb(116, 116, 116); */
 }
 /* #background{ */
-    /* background-color: rgb(37, 36, 36); */
+/* background-color: rgb(37, 36, 36); */
 
-
-    /*correct
+/*correct
        background-color: rgb(162, 162, 162);
        */
 /* } */
 
+#logo {
+  font-family: "Poppins", sans-serif;
 
-
-#logo{
-    font-family: 'Poppins', sans-serif;
-    
-    /* color:rgb(56, 214, 231) */
+  /* color:rgb(56, 214, 231) */
 }
 
-#subText{
-    font-family: 'Poppins', sans-serif;
+#subText {
+  font-family: "Poppins", sans-serif;
 }
-#button{
-    font-family: 'Poppins', sans-serif;
-  
+#button {
+  font-family: "Poppins", sans-serif;
 }
 
 /* #playlist{
     font-family: 'Poppins', sans-serif;
     
 } */
-#username{
-    position: relative;
-    right:110px;
-  
+#username {
+  position: relative;
+  right: 110px;
+  top: 15px;
 }
 
-#userphoto{
-    position: relative;
-    left:40px;
+#userphoto {
+  position: relative;
+  left: 0px;
 }
-div.fixed.bottom-0.w-full  div._InfoRSWP > div > a{
-    display: none;
+div.fixed.bottom-0.w-full div._InfoRSWP > div > a {
+  display: none;
 }
