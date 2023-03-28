@@ -334,31 +334,29 @@ export default function Dashboard({ code }) {
         className="flex bg-gray-100"
         // className="flex justify-center items-center bg-gray-100"
         id="topbar"
-        style={{ height: "10vh" }}
+        style={{
+          height: "10vh",
+
+          alignItems: "center",
+        }}
       >
-        {/* <div className="mx-10"> */}
         <img
           src={process.env.PUBLIC_URL + "/" + "My project-1 (11).png"}
           style={{ height: "80px", width: "300px", marginLeft: "20px" }}
         ></img>
-        {/* <h3 className="text-6xl font-bold font-mono bg-gradient-to-r from-blue-400 to-blue-400 text-transparent bg-clip-text" id="logo">Namify</h3> */}
+        {/* this is the search and check div */}
 
-        {/* </div> */}
-        {/* <div
-          className="inline-block w-1/2 mx-auto mt-8 mx-15"
-          style={{ marginLeft: "265px", position: "relative", bottom: 13 }}
-        > */}
         <div
-          className="border border-gray-300 rounded px-4 py-2 w-80 bg-white mx-auto"
+          className="border border-gray-300 rounded px-4 py-2 w-80 bg-white "
           style={{
-            height: "67%",
-            marginTop: "13px",
+            // height: "67%",
+            // position: "relative",
+            // left: "70px",
             width: "32%",
-            marginLeft: "170px",
-            // position: "relative",
-            // left: "27px",
-            // position: "relative",
-            // left: "0px",
+            position: "absolute",
+            left: "50%",
+            // top: "50%",
+            transform: "translate(-50%)",
           }}
         >
           <input
@@ -369,16 +367,21 @@ export default function Dashboard({ code }) {
             style={{
               height: "40px",
               width: "100%",
+              fontSize: "130%",
             }}
             onChange={(e) => setSearch(e.target.value)}
           />
         </div>
 
-        {/* </div> */}
-
         <label
           class="inline-flex items-center"
-          style={{ paddingTop: "6px", marginRight: "300px", width: "40px" }}
+          style={{
+            marginRight: "0px",
+            marginLeft: "auto",
+            position: "flex",
+            left: "200px",
+            // width:"30px"
+          }}
         >
           <input
             type="checkbox"
@@ -403,9 +406,14 @@ export default function Dashboard({ code }) {
             maxHeight: "100%",
             height: "60px",
             width: "60px",
+            display: "flex",
+            // left: "200px",
+            marginRight: "0px",
+            marginLeft: "auto",
+
             // marginLeft: "60px",
-            marginTop: "9px",
-            marginLeft: "30px",
+
+            // marginLeft: "30px",
           }}
         ></img>
 
@@ -569,9 +577,13 @@ export default function Dashboard({ code }) {
               <div
                 className="text-center font-bold bg-orange-400 text-white py-4 rounded "
                 style={{
-                  marginTop: "180px",
-                  marginLeft: "40px",
-                  width: "370px",
+                  // marginLeft: "40px",
+                  width: "80%",
+                  height: "9%",
+                  position: "absolute",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%)",
                 }}
               >
                 Select up to 5 items (Songs or Artists)
@@ -602,7 +614,14 @@ export default function Dashboard({ code }) {
                       ? "gradient-to-r from-purple-500 to-red-500 "
                       : "gray-400"
                   } text-white font-bold py-2 px-4 rounded absolute bottom-0  `}
-                  style={{ marginLeft: "130px", marginBottom: "13px" }}
+                  style={{
+                    position: "absolute",
+                    height: "9%",
+                    width: "60%",
+                    left: "50%",
+                    // top: "50%",
+                    transform: "translate(-50%, -50%)",
+                  }}
                   onClick={getRecommendations}
                   disabled={currentRecommendationLength < 1}
                 >
