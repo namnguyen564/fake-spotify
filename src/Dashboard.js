@@ -373,28 +373,28 @@ export default function Dashboard({ code }) {
           />
         </div>
 
-        <label
-          class="inline-flex items-center"
-          style={{
-            marginRight: "0px",
-            marginLeft: "auto",
-            position: "flex",
-            left: "200px",
-            // width:"30px"
-          }}
-        >
-          <input
-            type="checkbox"
-            class="form-checkbox h-5 w-5 text-indigo-600"
-            onClick={handleSwitchToggle}
-          />
-          <span class="ml-2 text-white font-bold">
-            {currentSearchChoice === "songs"
-              ? "Search Artists"
-              : "Search Artists"}
-          </span>
-        </label>
-
+        <div style={{ position: "relative" }}>
+          <label
+            class="inline-flex items-center"
+            style={{
+              position: "absolute",
+              left: "calc(100% + 650px)",
+              transform: "translateY(-50%)",
+              width: "30px",
+            }}
+          >
+            <input
+              type="checkbox"
+              class="form-checkbox h-5 w-5 text-indigo-600"
+              onClick={handleSwitchToggle}
+            />
+            <span class="ml-2 text-white font-bold">
+              {currentSearchChoice === "songs"
+                ? "Search Artists"
+                : "Search Artists"}
+            </span>
+          </label>
+        </div>
         {/* <div className="flex items-center bg-gray-400  p-2 h-14 rounded-lg" id="profile"> */}
 
         <img
@@ -464,6 +464,7 @@ export default function Dashboard({ code }) {
               <h3
                 class="font-bold text-center border-b-2 border-gray-500 mx-auto text-2xl"
                 id="playlist"
+                style={{ fontSize: "160%" }}
               >
                 {playlistState ? "Playlists:" : playlistName}
               </h3>
@@ -510,7 +511,11 @@ export default function Dashboard({ code }) {
             >
               <span
                 className="font-bold border-b-2 text-2xl inline-block border-b-2 border-gray-500 "
-                style={{ position: "absolute", bottom: "-0.4em" }}
+                style={{
+                  position: "absolute",
+                  bottom: "-0.4em",
+                  fontSize: "160%",
+                }}
                 id="search"
               >
                 Search:
@@ -567,6 +572,7 @@ export default function Dashboard({ code }) {
               <h3
                 class="font-bold text-center border-b-2 border-gray-500  mx-auto text-2xl"
                 id="search"
+                style={{ fontSize: "160%" }}
               >
                 {recommendationState
                   ? "Recommendation:"
@@ -583,6 +589,7 @@ export default function Dashboard({ code }) {
                   position: "absolute",
                   left: "50%",
                   top: "50%",
+                  fontSize: "110%",
                   transform: "translate(-50%, -50%)",
                 }}
               >
@@ -616,6 +623,7 @@ export default function Dashboard({ code }) {
                   } text-white font-bold py-2 px-4 rounded absolute bottom-0  `}
                   style={{
                     position: "absolute",
+                    fontSize: "110%",
                     height: "9%",
                     width: "60%",
                     left: "50%",
