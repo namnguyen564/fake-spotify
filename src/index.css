@@ -3,6 +3,12 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
+@media (min-width: 768px) {
+  label {
+    left: calc(100% + 850px);
+  }
+}
+
 html,
 body {
   height: 100%;

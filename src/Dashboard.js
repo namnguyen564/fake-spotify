@@ -395,6 +395,7 @@ export default function Dashboard({ code }) {
             </span>
           </label>
         </div>
+
         {/* <div className="flex items-center bg-gray-400  p-2 h-14 rounded-lg" id="profile"> */}
 
         <img
