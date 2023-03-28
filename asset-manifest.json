@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/namify/static/css/main.05812450.css",
-    "main.js": "/namify/static/js/main.a7d0a8e2.js",
+    "main.css": "/namify/static/css/main.20e28579.css",
+    "main.js": "/namify/static/js/main.49173fca.js",
     "index.html": "/namify/index.html",
-    "main.05812450.css.map": "/namify/static/css/main.05812450.css.map",
-    "main.a7d0a8e2.js.map": "/namify/static/js/main.a7d0a8e2.js.map"
+    "main.20e28579.css.map": "/namify/static/css/main.20e28579.css.map",
+    "main.49173fca.js.map": "/namify/static/js/main.49173fca.js.map"
   },
   "entrypoints": [
-    "static/css/main.05812450.css",
-    "static/js/main.a7d0a8e2.js"
+    "static/css/main.20e28579.css",
+    "static/js/main.49173fca.js"
   ]
 }
