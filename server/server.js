@@ -12,7 +12,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/test", (req, res) => {
-  res.json({ message: "hello" });
+  res.json({ message: "hello cuh" });
 });
 
 app.post("/refresh", (req, res) => {

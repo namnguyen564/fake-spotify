@@ -377,9 +377,11 @@ export default function Dashboard({ code }) {
           <label
             class="inline-flex items-center"
             style={{
-              position: "absolute",
-              left: "calc(100% + 650px)",
-              transform: "translateY(-50%)",
+              // position: "absolute",
+              // left: "calc(100% + 0px)",
+
+              // marginLeft: "51vw",
+              // transform: "translateY(-50%)",
               width: "30px",
             }}
           >
